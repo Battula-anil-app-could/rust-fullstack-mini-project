@@ -1,0 +1,28 @@
+[package]
+name = "rocket_backend"
+default-run = "server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diesel = { version = "2.1", features = ["postgres", "chrono"] }
+chrono = { version = "0.4.33", features = ["serde"]}
+diesel-async = {version = "0.4", features = ["postgres"]}
+rocket = { version = "0.5.0", features = ["json"] }
+rocket_db_pools = { version = "0.1.0", features = ["diesel_postgres"] }
+rocket_sync_db_pools = {version = "0.1.0", features = ["diesel", "diesel_postgres_pool", "postgres"]}
+serde = "1.0.196"
+reqwest = {version = "0.11", features = ["json", "blocking"]}
+clap = "4.4"
+clap_lex = "0.7.0"
+tokio = "1.36.0"
+argon2 = "0.5.3"
+rand = "0.8.5"
+
+
+[default.databases.postgres]
+url = "postgresql://postgres:postgres@localhost/app_db"
+
+

@@ -1,0 +1,22 @@
+[development]
+port = 8000
+
+[staging]
+port = 8000
+
+[production]
+port = 8000
+
+[config]
+ROCKET_DATABASE='{postgres={url=postgres://postgres:postgres@localhost/app_db}}'
+
+[dependencies]
+diesel = { version = "2.1", features = ["postgres", "chrono"] }
+chrono = "0.4.33"
+diesel-async = {version = "0.4", features = ["postgres"]}
+rocket = { version = "0.5.0", features = ["json"] }
+rocket_db_pools = { version = "0.1.0", features = ["diesel_postgres"] }
+rocket_sync_db_pools = {version = "0.1.0", features = ["diesel", "diesel_postgres_pool", "postgres"]}
+
+[default.databases.postgres]
+url = "postgresql://postgres:postgres@localhost/app_db"
